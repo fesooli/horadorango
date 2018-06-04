@@ -1,6 +1,7 @@
 package br.com.fellipe.horadorango.adapters;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -42,6 +43,12 @@ public class FoodAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        if(position %2 == 1) {
+            holder.itemView.setBackgroundColor(Color.parseColor("#FFFFFF"));
+        } else {
+            holder.itemView.setBackgroundColor(Color.parseColor("#F8F8FF"));
+        }
+
         final FoodHolder foodHolder = (FoodHolder) holder;
         final Place place = places.get(position);
         Picasso.get().load(place.getImage()).into(foodHolder.ivFood);
