@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import br.com.fellipe.horadorango.adapters.ListViewAdapter;
 import br.com.fellipe.horadorango.dao.model.Order;
 import br.com.fellipe.horadorango.model.Place;
+import br.com.fellipe.horadorango.util.CallUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -58,6 +59,12 @@ public class PlaceActivity extends AppCompatActivity {
                 Intent intent = new Intent(activity, PaymentActivity.class);
                 intent.putExtra("ORDER", order);
                 startActivity(intent);
+            }
+        });
+        tvPhone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CallUtil.checkPermissionPhoneCall(activity, tvPhone.getText().toString());
             }
         });
     }

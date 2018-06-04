@@ -56,7 +56,7 @@ public class ListViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
         order.setPlaceId(place.getId());
         itemHolder.tvItemName.setText(menu.getItem());
-        itemHolder.tvItemPrice.setText(menu.getPrice().toString());
+        itemHolder.tvItemPrice.setText("R$" + menu.getPrice().toString());
         itemHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
