@@ -8,7 +8,6 @@
     tools:context="br.com.fellipe.horadorango.MainActivity">
 
     <FrameLayout
-        android:layout_marginTop="@dimen/default_20_dp"
         android:id="@+id/fl_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
@@ -24,8 +23,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:itemTextColor="@color/primary_text"
-        app:itemIconTint="@color/colorLight"
-        app:itemBackground="@color/colorPrimaryDark"
+        app:itemIconTint="@color/menu"
+        app:itemBackground="@color/primary_light"
         app:menu="@menu/navigation" />
 
 </android.support.constraint.ConstraintLayout>

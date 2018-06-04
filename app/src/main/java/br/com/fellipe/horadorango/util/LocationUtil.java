@@ -48,42 +48,35 @@ public class LocationUtil {
     public LatLng getLatLong() {
         if (ActivityCompat
                 .checkSelfPermission(activity,
-                        android.Manifest.permission.ACCESS_FINE_LOCATION)
+                        android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+        && ActivityCompat
+                .checkSelfPermission(activity, android.Manifest.permission.ACCESS_COARSE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(activity,
                     new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
                     1);
-        }
-
-        if (ActivityCompat
-                .checkSelfPermission(activity,
-                        android.Manifest.permission.ACCESS_COARSE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(activity,
-                    new String[]{android.Manifest.permission.ACCESS_COARSE_LOCATION},
-                    1);
-
-        }
-        if(mMap != null) {
-            mMap.setMyLocationEnabled(true);
-        }
-
-        LocationManager locationManager = (LocationManager) activity.getSystemService(activity.LOCATION_SERVICE);
-        Location location = locationManager.getLastKnownLocation(GPS_PROVIDER);
-        if (location != null) {
-            Double latitude = location.getLatitude();
-            Double longitude = location.getLongitude();
-            return new LatLng(latitude, longitude);
         } else {
-            location = locationManager.getLastKnownLocation(NETWORK_PROVIDER);
+            if(mMap != null) {
+                mMap.setMyLocationEnabled(true);
+            }
+            LocationManager locationManager = (LocationManager) activity.getSystemService(activity.LOCATION_SERVICE);
+            Location location = locationManager.getLastKnownLocation(GPS_PROVIDER);
             if (location != null) {
                 Double latitude = location.getLatitude();
                 Double longitude = location.getLongitude();
                 return new LatLng(latitude, longitude);
-            }
+            } else {
+                location = locationManager.getLastKnownLocation(NETWORK_PROVIDER);
+                if (location != null) {
+                    Double latitude = location.getLatitude();
+                    Double longitude = location.getLongitude();
+                    return new LatLng(latitude, longitude);
+                }
 
-            return null;
+                return null;
+            }
         }
+        return null;
     }
 
     public void requestGPSPermission() {

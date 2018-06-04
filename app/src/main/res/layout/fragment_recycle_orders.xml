@@ -9,7 +9,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Últimas Compras"
-        android:textSize="30sp"/>
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:background="@color/primary_light"
+        android:textColor="@color/menu"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/ordersList"
@@ -17,6 +21,6 @@
         android:layout_height="match_parent"
         android:scrollbars="vertical"
         android:scrollbarAlwaysDrawVerticalTrack="true"
-        tools:listitem="@layout/fragment_recycle_orders" />
+        tools:listitem="@layout/fragment_middle" />
 
 </LinearLayout>

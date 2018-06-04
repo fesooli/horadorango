@@ -4,12 +4,12 @@
     <item
         android:id="@+id/food_list_fragment"
         android:icon="@drawable/ic_home_black_24dp"
-        android:title="Estabelecimentos" />
+        android:title="Meu Rango" />
 
     <item
         android:id="@+id/middle_fragment"
         android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="Últimas Compras" />
+        android:title="Ranguei" />
 
     <item
         android:id="@+id/about_fragment"

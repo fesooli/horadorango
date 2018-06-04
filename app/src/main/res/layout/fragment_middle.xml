@@ -9,7 +9,10 @@
         android:id="@+id/placeName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nome do Estabelecimento"/>
+        android:hint="Nome do Estabelecimento"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textSize="20sp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,6 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Pedido:\n1 Pizza\n 1 Coca"
+            android:textSize="15sp"
             android:layout_marginLeft="80sp"/>
 
     </LinearLayout>
@@ -40,6 +44,7 @@
             android:id="@+id/orderPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
             android:hint="Total: R$50,00"/>
 
         <TextView
@@ -54,6 +59,7 @@
         android:id="@+id/address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
         android:hint="Endereço de Entrega: Avenida Paulista, 100"/>
 
 </LinearLayout>

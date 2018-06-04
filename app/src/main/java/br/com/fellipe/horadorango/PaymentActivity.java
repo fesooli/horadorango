@@ -219,6 +219,7 @@ public class PaymentActivity extends AppCompatActivity implements android.locati
                     .fallbackToDestructiveMigration()
                     .build();
             User user = database.userDAO().findByUsername(this.email);
+
             if(user.getId() == null) {
                 Long id = database.userDAO().insert(user);
                 order.setUserId(id.intValue());

@@ -83,6 +83,7 @@ public class AddressActivity extends AppCompatActivity {
                         user.setUsername(username);
 
                         if(result == 0) {
+                            user.setUsername(mAuth.getCurrentUser().getEmail());
                             DatabaseTask databaseTask = new DatabaseTask(address, user);
                             Long result = null;
                             try {
@@ -97,9 +98,7 @@ public class AddressActivity extends AppCompatActivity {
                                 e.printStackTrace();
                             }
                         } else if(result == 1) {
-                            if(username == null) {
-                                user.setUsername(mAuth.getCurrentUser().getEmail());
-                            }
+                            user.setUsername(mAuth.getCurrentUser().getEmail());
                             DatabaseTaskUpdate databaseTaskUpdate = new DatabaseTaskUpdate(address, user);
                             Long result = null;
                             try {

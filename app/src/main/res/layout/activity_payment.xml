@@ -11,13 +11,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Formas de pagamento"
-        android:textSize="23sp"/>
+        android:textSize="23sp"
+        android:background="@color/primary_light"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="@color/menu"/>
 
     <RadioGroup
         android:id="@+id/rgPaymentForm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" />
+        android:orientation="vertical"
+        android:backgroundTint="#F8F8FF"/>
 
     <LinearLayout
         android:id="@+id/layoutDelivery"
@@ -29,7 +34,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Endereço de Entrega"
-            android:textSize="23sp"/>
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:textColor="@color/primary_text"/>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -49,12 +56,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Detalhes do Pedido"
-        android:textSize="23sp"/>
+        android:textSize="23sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary_text"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="#F8F8FF">
 
         <ImageView
             android:id="@+id/ivPlaceImage"
@@ -67,6 +77,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20sp"
+            android:textColor="@color/primary_text"
             android:hint="1 Pizza Calabresa\n1 Pizza de Frango com Catupiry\n1 Coca Cola\n3 Esfihas de queijo"/>
 
     </LinearLayout>

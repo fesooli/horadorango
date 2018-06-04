@@ -3,6 +3,7 @@ package br.com.fellipe.horadorango.adapters;
 import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
@@ -56,6 +57,11 @@ public class OrderRecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.V
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
+        if(position %2 == 1) {
+            holder.itemView.setBackgroundColor(Color.parseColor("#FFFFFF"));
+        } else {
+            holder.itemView.setBackgroundColor(Color.parseColor("#F8F8FF"));
+        }
         final OrderHolder orderHolder = (OrderHolder) holder;
         final Order order = orders.get(position);
         Retrofit retrofit = new Retrofit.Builder()
