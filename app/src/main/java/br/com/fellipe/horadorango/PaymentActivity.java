@@ -162,6 +162,7 @@ public class PaymentActivity extends AppCompatActivity implements android.locati
                             Long result = databaseTaskInsert.execute().get();
                             if(result == 0L) {
                                 Intent intent = new Intent(activity, OrderCompletedActivity.class);
+                                intent.putExtra("ORDER", order);
                                 activity.startActivity(intent);
                             }
                         } catch (InterruptedException e) {

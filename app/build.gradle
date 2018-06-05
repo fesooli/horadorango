@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'
 
 android {
     compileSdkVersion 26
@@ -52,6 +53,10 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:16.0.1'
     implementation 'com.firebaseui:firebase-ui-auth:4.0.0'
     implementation 'com.google.firebase:firebase-core:16.0.0'
+    implementation 'com.google.firebase:firebase-iid:11.4.0'
+    implementation 'com.google.firebase:firebase-firestore:17.0.1'
+    implementation 'com.google.firebase:firebase-functions:16.0.1'
+    implementation 'com.google.firebase:firebase-messaging:17.0.0'
     implementation 'com.google.android.gms:play-services-base:15.0.1'
     implementation 'com.google.android.gms:play-services-maps:15.0.1'
     implementation "com.google.android.gms:play-services-analytics:16.0.0"
@@ -67,3 +72,4 @@ dependencies {
 
 
 apply plugin: 'com.google.gms.google-services'
+com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true
