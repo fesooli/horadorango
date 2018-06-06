@@ -21,8 +21,7 @@
         android:id="@+id/rgPaymentForm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:backgroundTint="#F8F8FF"/>
+        android:orientation="vertical"/>
 
     <LinearLayout
         android:id="@+id/layoutDelivery"
@@ -68,8 +67,8 @@
 
         <ImageView
             android:id="@+id/ivPlaceImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:src="@mipmap/ic_pizza"/>
 
         <TextView
@@ -94,6 +93,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Finalizar Pedido"
+        android:textStyle="bold"
+        android:textColor="@color/primary_light"
+        android:background="@color/menu"
         android:textSize="18sp"/>
 
 </LinearLayout>

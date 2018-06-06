@@ -7,16 +7,30 @@
     android:orientation="vertical"
     tools:context="br.com.fellipe.horadorango.LoginActivity">
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/primary_light"
+        android:gravity="center"
+        android:text="Faça o login ou crie uma conta"
+        android:textColor="@color/menu"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="84dp"
         android:hint="email@emai.com"
+        android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:inputType="textEmailAddress"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/etPassword"
@@ -29,25 +43,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etEmail" />
 
-    <Button
-        android:id="@+id/btLogin"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="44dp"
-        android:layout_marginTop="45dp"
-        android:text="Login"
-        app:layout_constraintEnd_toStartOf="@+id/btCreateAccount"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword"
-        android:onClick="login"/>
+        android:layout_marginTop="58dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPassword">
 
-    <Button
-        android:id="@+id/btCreateAccount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="62dp"
-        android:text="Criar Conta"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btLogin"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <Button
+            android:id="@+id/btLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:background="@color/menu"
+            android:onClick="login"
+            android:text="Login"
+            android:textColor="@color/primary_light"
+            android:textStyle="bold" />
 
+        <Button
+            android:id="@+id/btCreateAccount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:background="@color/menu"
+            android:text="Criar Conta"
+            android:textColor="@color/primary_light"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

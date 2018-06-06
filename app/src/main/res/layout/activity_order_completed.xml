@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primary_light"
     tools:context="br.com.fellipe.horadorango.OrderCompletedActivity">
 
     <TextView
@@ -12,6 +13,7 @@
         android:layout_height="0dp"
         android:gravity="top"
         android:text="PEDIDO FINALIZADO"
+        android:textStyle="bold"
         android:textAlignment="center"
         android:textColor="@color/menu"
         android:textSize="60sp"
@@ -29,7 +31,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.498"
-        app:srcCompat="@drawable/ic_share_foreground" />
+        app:srcCompat="@drawable/ic_share_foreground"
+        android:background="@color/primary_light"/>
 
     <ImageButton
         android:id="@+id/ibBack"
@@ -40,7 +43,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.498"
-        app:srcCompat="@drawable/ic_reply_foreground" />
+        app:srcCompat="@drawable/ic_reply_foreground"
+        android:background="@color/primary_light"/>
 
     <TextView
         android:id="@+id/textView2"
@@ -48,6 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="82dp"
         android:text="Compartilhe com seus amigos!"
+        android:textStyle="bold"
         android:textAlignment="center"
         android:textColor="@color/primary_text"
         android:textSize="30sp"

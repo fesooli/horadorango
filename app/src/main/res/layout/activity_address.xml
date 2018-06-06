@@ -11,7 +11,10 @@
         android:layout_height="wrap_content"
         android:text="DADOS DE ENTREGA"
         android:textSize="25sp"
-        android:textAlignment="center"/>
+        android:textAlignment="center"
+        android:background="@color/primary_light"
+        android:textStyle="bold"
+        android:textColor="@color/primary_text"/>
 
     <EditText
         android:id="@+id/etCep"
@@ -29,8 +32,16 @@
 
     <Button
         android:id="@+id/btSave"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Salvar"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/primary_light"
+        android:background="@color/menu"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@mipmap/ic_logo_foreground"/>
 </LinearLayout>

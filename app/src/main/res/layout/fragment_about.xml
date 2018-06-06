@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primary_light"
     tools:context="br.com.fellipe.horadorango.fragments.AboutFragment">
 
     <LinearLayout
@@ -10,33 +11,31 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
+        android:background="@color/primary_light"
         android:layout_gravity="center">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            android:textSize="30sp"
-            android:textAlignment="center"/>
-
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_splash_background"/>
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            app:srcCompat="@mipmap/ic_logo_foreground"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Desenvolvido por Fellipe Oliveira"
             android:textAlignment="center"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/menu"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Versão do aplicativo: 1.0"
             android:textAlignment="center"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/menu"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -46,20 +45,27 @@
 
             <Button
                 android:id="@+id/updateAddress"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Atualizar Endereço"
                 android:textAlignment="center"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary_light"
+                android:background="@color/menu"
+                android:layout_weight="0.5"/>
 
             <Button
                 android:id="@+id/logout"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Sair"
                 android:textAlignment="center"
                 android:textSize="20sp"
-                android:textColor="@color/colorPrimary"/>
+                android:textColor="@color/primary_light"
+                android:background="@color/menu"
+                android:layout_weight="0.5"
+                android:textStyle="bold"/>
 
         </LinearLayout>
 

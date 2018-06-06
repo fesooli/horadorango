@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -50,15 +51,20 @@ public class PlaceActivity extends AppCompatActivity {
         tvName.setText(place.getName());
         tvAddress.setText(place.getAddress());
         tvPhone.setText(place.getPhone());
+        order.setUrlPlaceImage(place.getImage());
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(new ListViewAdapter(place.getMenu(), this, place, order));
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(activity, PaymentActivity.class);
-                intent.putExtra("ORDER", order);
-                startActivity(intent);
+                if(!order.getItems().isEmpty()) {
+                    Intent intent = new Intent(activity, PaymentActivity.class);
+                    intent.putExtra("ORDER", order);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(activity, "Por favor, coloque pelo menos 1 item no carrinho", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         tvPhone.setOnClickListener(new View.OnClickListener() {

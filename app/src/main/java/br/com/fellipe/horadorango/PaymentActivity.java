@@ -3,10 +3,13 @@ package br.com.fellipe.horadorango;
 import android.app.Activity;
 import android.arch.persistence.room.Room;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -20,6 +23,7 @@ import android.widget.TextView;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 import java.util.Locale;
@@ -83,6 +87,7 @@ public class PaymentActivity extends AppCompatActivity implements android.locati
             String items = tvOrderItems.getText().toString();
             tvOrderItems.setText(items + "1 " + item + "\n");
         }
+        Picasso.get().load(order.getUrlPlaceImage()).into(ivPlaceImage);
         FirebaseUser firebaseUser = mAuth.getCurrentUser();
         final DatabaseTask databaseTask = new DatabaseTask(firebaseUser.getEmail(), order);
         try {
@@ -141,6 +146,10 @@ public class PaymentActivity extends AppCompatActivity implements android.locati
                     RadioButton radioButton = new RadioButton(activity);
                     radioButton.setId(i);
                     radioButton.setText(card);
+
+                    if(i == 0) {
+                        radioButton.setChecked(true);
+                    }
                     rgPaymentForm.addView(radioButton);
                 }
 

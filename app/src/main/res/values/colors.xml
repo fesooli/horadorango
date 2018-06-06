@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#FFC107</color>
-    <color name="colorPrimaryDark">#FFA000</color>
+    <!--<color name="colorPrimaryDark">#FFA000</color>-->
+    <color name="colorPrimaryDark">#FFECB3</color>
     <color name="colorLight">#800000</color>
     <color name="primary_light">#FFECB3</color>
     <color name="phone_call">#0000CD</color>

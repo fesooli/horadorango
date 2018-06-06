@@ -51,6 +51,13 @@ public class FoodAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         final FoodHolder foodHolder = (FoodHolder) holder;
         final Place place = places.get(position);
+
+        if(places.size() == (position + 1)) {
+            ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) holder.itemView.getLayoutParams();
+            layoutParams.setMargins(0, 0, 0, 180);
+            foodHolder.itemView.setLayoutParams(layoutParams);
+        }
+
         Picasso.get().load(place.getImage()).into(foodHolder.ivFood);
         foodHolder.tvPlaceName.setText(place.getName());
         foodHolder.tvKindOfFood.setText(place.getKindOfFood());

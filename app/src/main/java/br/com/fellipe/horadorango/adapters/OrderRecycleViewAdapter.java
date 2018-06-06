@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -64,6 +66,14 @@ public class OrderRecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.V
         }
         final OrderHolder orderHolder = (OrderHolder) holder;
         final Order order = orders.get(position);
+
+        if(orders.size() == (position + 1)) {
+            ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) holder.itemView.getLayoutParams();
+            layoutParams.setMargins(0, 0, 0, 180);
+            orderHolder.itemView.setLayoutParams(layoutParams);
+        }
+
+        Picasso.get().load(order.getUrlPlaceImage()).into(orderHolder.ivOrderImage);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://horadorango.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create())

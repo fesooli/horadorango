@@ -10,25 +10,12 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginStart="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/title"
-        app:layout_constraintStart_toStartOf="@+id/title"
-        app:srcCompat="@drawable/ic_splash_background" />
-
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title"
-        android:textColor="@color/menu"
-        android:textSize="25sp"
-        android:textStyle="bold"
+        android:layout_width="500dp"
+        android:layout_height="500dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_logo_foreground" />
 
 </android.support.constraint.ConstraintLayout>

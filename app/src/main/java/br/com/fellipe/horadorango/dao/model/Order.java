@@ -25,6 +25,7 @@ public class Order implements Serializable{
     @TypeConverters(DataConverter.class)
     private List<String> items;
     private Double totalPrice;
+    private String urlPlaceImage;
 
     public Integer getId() {
         return id;
@@ -80,5 +81,13 @@ public class Order implements Serializable{
 
     public void setPlaceId(Integer placeId) {
         this.placeId = placeId;
+    }
+
+    public String getUrlPlaceImage() {
+        return urlPlaceImage;
+    }
+
+    public void setUrlPlaceImage(String urlPlaceImage) {
+        this.urlPlaceImage = urlPlaceImage;
     }
 }

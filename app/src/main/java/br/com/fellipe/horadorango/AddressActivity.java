@@ -63,64 +63,64 @@ public class AddressActivity extends AppCompatActivity {
                 if(number == "" || cep == "") {
                     Toast.makeText(activity, "Os campos não podem estar em branco", Toast.LENGTH_SHORT).show();
                     return;
-                }
+                } else {
+                    String URL = "https://viacep.com.br/ws/" + cep + "/";
+                    Retrofit retrofit = new Retrofit.Builder()
+                            .baseUrl(URL)
+                            .addConverterFactory(GsonConverterFactory.create())
+                            .build();
 
-                String URL = "https://viacep.com.br/ws/" + cep + "/";
-                Retrofit retrofit = new Retrofit.Builder()
-                        .baseUrl(URL)
-                        .addConverterFactory(GsonConverterFactory.create())
-                        .build();
+                    CepApi service = retrofit.create(CepApi.class);
+                    final Call<Address> cepCall = service.getCep();
+                    cepCall.enqueue(new Callback<Address>() {
+                        @Override
+                        public void onResponse(Call<Address> call, Response<Address> response) {
+                            Address address = response.body();
+                            address.setNumber(Integer.parseInt(number));
 
-                CepApi service = retrofit.create(CepApi.class);
-                final Call<Address> cepCall = service.getCep();
-                cepCall.enqueue(new Callback<Address>() {
-                    @Override
-                    public void onResponse(Call<Address> call, Response<Address> response) {
-                        Address address = response.body();
-                        address.setNumber(Integer.parseInt(number));
+                            User user = new User();
+                            user.setUsername(username);
 
-                        User user = new User();
-                        user.setUsername(username);
-
-                        if(result == 0) {
-                            user.setUsername(mAuth.getCurrentUser().getEmail());
-                            DatabaseTask databaseTask = new DatabaseTask(address, user);
-                            Long result = null;
-                            try {
-                                result = databaseTask.execute().get();
-                                if(result == 0L) {
-                                    Intent intent = new Intent(activity, MainActivity.class);
-                                    startActivity(intent);
+                            if(result == 0) {
+                                user.setUsername(mAuth.getCurrentUser().getEmail());
+                                DatabaseTask databaseTask = new DatabaseTask(address, user);
+                                Long result = null;
+                                try {
+                                    result = databaseTask.execute().get();
+                                    if(result == 0L) {
+                                        Intent intent = new Intent(activity, MainActivity.class);
+                                        startActivity(intent);
+                                    }
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                } catch (ExecutionException e) {
+                                    e.printStackTrace();
                                 }
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            } catch (ExecutionException e) {
-                                e.printStackTrace();
-                            }
-                        } else if(result == 1) {
-                            user.setUsername(mAuth.getCurrentUser().getEmail());
-                            DatabaseTaskUpdate databaseTaskUpdate = new DatabaseTaskUpdate(address, user);
-                            Long result = null;
-                            try {
-                                result = databaseTaskUpdate.execute().get();
-                                if(result == 0L) {
-                                    Toast.makeText(activity, "Endereço atualizado com sucesso!", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(activity, MainActivity.class);
-                                    startActivity(intent);
+                            } else if(result == 1) {
+                                user.setUsername(mAuth.getCurrentUser().getEmail());
+                                DatabaseTaskUpdate databaseTaskUpdate = new DatabaseTaskUpdate(address, user);
+                                Long result = null;
+                                try {
+                                    result = databaseTaskUpdate.execute().get();
+                                    if(result == 0L) {
+                                        Toast.makeText(activity, "Endereço atualizado com sucesso!", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(activity, MainActivity.class);
+                                        startActivity(intent);
+                                    }
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                } catch (ExecutionException e) {
+                                    e.printStackTrace();
                                 }
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            } catch (ExecutionException e) {
-                                e.printStackTrace();
                             }
                         }
-                    }
 
-                    @Override
-                    public void onFailure(Call<Address> call, Throwable t) {
+                        @Override
+                        public void onFailure(Call<Address> call, Throwable t) {
 
-                    }
-                });
+                        }
+                    });
+                }
             }
         });
     }

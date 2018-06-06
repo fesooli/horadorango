@@ -11,7 +11,7 @@ import br.com.fellipe.horadorango.dao.model.User;
  * Created by fellipe on 01/06/18.
  */
 
-@Database(entities = {User.class, Address.class, Order.class}, version = 2)
+@Database(entities = {User.class, Address.class, Order.class}, version = 3)
 public abstract class HoraDoRangoDatabase extends RoomDatabase {
 
     public static final String DATABASE_NAME = "HoraDoRangoDatabase";
