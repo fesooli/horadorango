@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.firebase.ui.auth.AuthUI;
+//import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -64,16 +64,5 @@ public class AboutFragment extends Fragment {
     private FirebaseUser getCurrentUser() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         return user != null ? user : null;
-    }
-
-    private void startSignIn() {
-        Intent intent = AuthUI.getInstance().createSignInIntentBuilder()
-                .setIsSmartLockEnabled(!BuildConfig.DEBUG)
-                .setAvailableProviders(Collections.singletonList(
-                        new AuthUI.IdpConfig.EmailBuilder().build()))
-                .setLogo(R.drawable.ic_splash_background)
-                .build();
-
-        startActivityForResult(intent, 9001);
     }
 }
